@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @listing.location %>
+</p>
+
+<p>
+  <strong>Bds:</strong>
+  <%= @listing.bds %>
+</p>
+
+<p>
+  <strong>Ba:</strong>
+  <%= @listing.ba %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @listing.area %>
+</p>
+
+<p>
+  <strong>Developer:</strong>
+  <%= @listing.developer %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @listing.price %>
+</p>
+
+<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Back', listings_path %>
