@@ -7,7 +7,11 @@ class ListingsController < ApplicationController
     @markers = @listings.geocoded.map do |listing|
       {
         lat: listing.latitude,
-        lng: listing.longitude
+        lng: listing.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { listing: listing }),
+        image_url: helpers.asset_url('https://linkpicture.com/q/location_1.jpg')
+        # image_url: helpers.asset_url('https://previews.123rf.com/images/alextanya123rf/alextanya123rf1605/alextanya123rf160500240/56418255-black-and-white-web-icon-of-plane-airport-icon-plane-shape-plane-icon-shape-label-symbol-graphic-vec.jpg')
+
       }
     end
   end

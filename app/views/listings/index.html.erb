@@ -2,8 +2,14 @@
 
 <div class="mx-5">
   <div class="row">
-    <div class="col-lg-6 col-md-8 bg-secondary h-100">Map</div>
-    <div class="col-lg-6 col-md-4 bg-primary h-100 w-100">
+    <div class="col-lg-6 col-md-8 bg-secondary vh-100" id="map"
+     style="width: 100%; height: 1000px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
+     </div>
+
+    <div class="col-lg-6 col-md-4 h-100 w-100">
       <h2>Listings</h2>
       <div class="row">
         <% @listings.each do |listing| %>
@@ -15,7 +21,10 @@
                  <h5 class="card-title mb-1"><%= listing.price %> EGP</h5>
                  <p class="card-text mb-1"><%= listing.bds %> bds <%= listing.ba %> ba - <%= listing.area %>m2</p>
                  <p class="mb-1"><small class="card-text mb-1" style="font: 0.7em sans-serif;"><%= listing.location %></small></p>
-                 <p class="mb-1"><small class="card-text mb-1 text-muted"><%= listing.developer %></small></p>
+                 <p class="mb-1"><small class="card-text mb-1 text-muted"><%= listing.developer %></small>
+                 <%= link_to 'Show', listing %>
+                 <%= link_to 'Edit', edit_listing_path(listing) %>
+                 <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
                </div>
             </div>
         <% end %>
@@ -29,9 +38,3 @@
 
 
 
-        <td><%#= link_to 'Show', listing %></td>
-        <td><%#= link_to 'Edit', edit_listing_path(listing) %></td>
-        <td><%#= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-  </tbody>
-</table>
