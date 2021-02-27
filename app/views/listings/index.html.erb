@@ -1,37 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listings</h1>
+<div class="mx-5">
+  <div class="row">
+    <div class="col-lg-6 col-md-8 bg-secondary h-100">Map</div>
+    <div class="col-lg-6 col-md-4 bg-primary h-100 w-100">
+      <h2>Listings</h2>
+      <div class="row">
+        <% @listings.each do |listing| %>
+          <div class="col-lg-6 col-md-12 col-sm-12 m-0">
+        <%= link_to listing_path(listing), class: 'text-decoration-none', style: 'color: black;'  do %>
+            <div class="card m-1" style="width: 18rem; height: 21rem;">
+               <img class="card-img-top" src="https://images.unsplash.com/photo-1460317442991-0ec209397118?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Card image cap">
+               <div class="card-body p-2 d-flex flex-column d-flex justify-content-between">
+                 <h5 class="card-title mb-1"><%= listing.price %> EGP</h5>
+                 <p class="card-text mb-1"><%= listing.bds %> bds <%= listing.ba %> ba - <%= listing.area %>m2</p>
+                 <p class="mb-1"><small class="card-text mb-1" style="font: 0.7em sans-serif;"><%= listing.location %></small></p>
+                 <p class="mb-1"><small class="card-text mb-1 text-muted"><%= listing.developer %></small></p>
+               </div>
+            </div>
+        <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Location</th>
-      <th>Bds</th>
-      <th>Ba</th>
-      <th>Area</th>
-      <th>Developer</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @listings.each do |listing| %>
-      <tr>
-        <td><%= listing.location %></td>
-        <td><%= listing.bds %></td>
-        <td><%= listing.ba %></td>
-        <td><%= listing.area %></td>
-        <td><%= listing.developer %></td>
-        <td><%= listing.price %></td>
-        <td><%= link_to 'Show', listing %></td>
-        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
+        <td><%#= link_to 'Show', listing %></td>
+        <td><%#= link_to 'Edit', edit_listing_path(listing) %></td>
+        <td><%#= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Listing', new_listing_path %>
