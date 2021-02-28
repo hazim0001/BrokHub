@@ -30,6 +30,8 @@ gem 'geocoder'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+ # bundle exec sheet_converter xlsx2csv 'non_csv.xlsx' to convert
+gem 'sheet_converter'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
